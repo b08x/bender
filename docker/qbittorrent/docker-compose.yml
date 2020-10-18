@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  qbittorrent:
+    image: linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1001
+      - PGID=965
+      - TZ='America/New_York'
+      - UMASK_SET=022
+      - WEBUI_PORT=8080
+    volumes:
+      - ./config:/config
+      - /srv/share/media:/downloads
+    ports:
+      - 6881:6881
+      - 6881:6881/udp
+      - 8080:8080
+    restart: unless-stopped
