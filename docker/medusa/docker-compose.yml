@@ -1,20 +1,17 @@
 version: "3"
 
 services:
-  qbittorrent:
-    image: linuxserver/qbittorrent
-    container_name: qbittorrent
+  medusa:
+    image: linuxserver/medusa
+    container_name: medusa
     environment:
       - PUID=1001
       - PGID=965
       - TZ='America/New_York'
-      - UMASK_SET=022
-      - WEBUI_PORT=8080
     volumes:
       - ./config:/config
       - /srv/share/media:/downloads
+      - /srv/share/media:/tv
     ports:
-      - 44488:44448
-      - 36278:36278/udp
-      - 8080:8080
+      - 8081:8081
     restart: unless-stopped
