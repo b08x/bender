@@ -6,7 +6,7 @@ services:
     container_name: jackett
     environment:
       - PUID=1001
-      - PGID=965
+      - PGID=1041
       - TZ='America/New_York'
       - AUTO_UPDATE=false #optional
       # - RUN_OPTS=<run options here> #optional

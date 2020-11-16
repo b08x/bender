@@ -6,7 +6,7 @@ services:
     container_name: sonarr
     environment:
       - PUID=1001
-      - PGID=965
+      - PGID=1041
       - TZ='America/New_York'
       - UMASK_SET=022 #optional
     volumes:
