@@ -1,9 +1,10 @@
-version: "3"
+version: "3.8"
 
 services:
   sonarr:
-    image: linuxserver/sonarr
+    image: binhex/arch-sonarr
     container_name: sonarr
+    hostname: sonarr
     environment:
       - PUID=1001
       - PGID=1041
@@ -11,8 +12,14 @@ services:
       - UMASK=002
     volumes:
       - ./config:/config
-      - /srv/share/media/tv:/tv
-      - /srv/share/media/downloads:/downloads
+      - /srv/share:/data
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 8989:8989
+      - 9897:9897
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: bridge
