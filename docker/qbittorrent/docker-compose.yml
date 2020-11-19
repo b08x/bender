@@ -8,11 +8,11 @@ services:
       - PUID=1001
       - PGID=1041
       - TZ='America/New_York'
-      - UMASK_SET=022
+      - UMASK=002
       - WEBUI_PORT=8080
     volumes:
       - ./config:/config
-      - /srv/share/media:/downloads
+      - /srv/share/media/downloads:/downloads
     ports:
       - 44488:44448
       - 36278:36278/udp
