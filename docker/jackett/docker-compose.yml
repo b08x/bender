@@ -5,6 +5,7 @@ services:
     image: hotio/jackett
     container_name: jackett
     hostname: jackett
+    network_mode: bridge
     environment:
       - PUID=1001
       - PGID=1041
@@ -18,8 +19,3 @@ services:
     ports:
       - 9117:9117
     restart: unless-stopped
-
-networks:
-  default:
-    external:
-      name: bridge

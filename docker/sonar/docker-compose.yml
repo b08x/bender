@@ -5,6 +5,7 @@ services:
     image: binhex/arch-sonarr
     container_name: sonarr
     hostname: sonarr
+    network_mode: bridge
     environment:
       - PUID=1001
       - PGID=1041
@@ -18,8 +19,3 @@ services:
       - 8989:8989
       - 9897:9897
     restart: unless-stopped
-
-networks:
-  default:
-    external:
-      name: bridge
