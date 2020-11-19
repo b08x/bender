@@ -31,3 +31,8 @@ services:
       - 36278:36278/udp
       - 8080:8080
     restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: bridge
