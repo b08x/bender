@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  beets:
+    image: ghcr.io/linuxserver/beets
+    container_name: beets
+    hostname: beets
+    network_mode: bridge
+    environment:
+      - PUID=1000
+      - PGID=1041
+      - TZ='America/New_York'
+      - AUTO_UPDATE=false #optional
+      # - RUN_OPTS=<run options here> #optional
+      - UMASK=002
+    volumes:
+      - ./config:/config
+      - /srv/share/media/music:/music
+      - /srv/share/torrents/music:/downloads
+    ports:
+      - 8337:8337
+    restart: unless-stopped
