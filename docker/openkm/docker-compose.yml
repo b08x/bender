@@ -3,12 +3,20 @@ version: '3.2'
 services:
   openkm:
     image: openkm/openkm-ce:6.3.9
+    container_name: openkm
+    hostname: openkm
+    network_mode: bridge
+    environment:
+      - PUID=1000
+      - PUID=1041
+      - TZ='America/New_York'
+      - UMASK=002
     ports:
-      - 8080:8080   
+      - 8080:8080
     volumes:
       - ${PWD}/server.xml:/opt/tomcat/conf/server.xml
       - ${PWD}/OpenKM.cfg:/opt/tomcat/OpenKM.cfg
-      - ${PWD}/repository:/opt/tomcat/repository
+      - /srv/archive/repository:/opt/tomcat/repository
     links:
       - mysql:mysql
 
