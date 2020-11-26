@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  organizr:
+    image: organizr/organizr
+    container_name: organizr
+    hostname: organizr
+    network_mode: bridge
+    environment:
+      - PUID=1000
+      - PGID=1041
+      - TZ='America/New_York'
+      - fpm=false
+      - branch="v2-master"
+    volumes:
+      - ./config:/config
+    ports:
+      - 80:80
+    restart: unless-stopped
