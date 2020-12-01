@@ -1,13 +1,11 @@
 version: "3.8"
 
 services:
-  sonarr:
-    image: binhex/arch-sonarr
-    container_name: sonarr
-    hostname: sonarr
-    network_mode: bridge
-    dns:
-      - 192.168.36.3
+  qbittorrent:
+    image: linuxserver/radarr:latest
+    container_name: radarr
+    hostname: radarr
+    network_mode: host
     environment:
       - PUID=1001
       - PGID=1041
@@ -17,7 +15,4 @@ services:
       - ./config:/config
       - /srv/share:/data
       - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 8989:8989
-      - 9897:9897
     restart: unless-stopped
