@@ -2,6 +2,8 @@
 
 directory: /srv/share/media/music
 library: ~/.config//beets/musiclibrary.blb
+statefile: ~/.config/beets/state.pickle
+time_format: '%Y-%m-%d %H:%M:%S'
 
 import:
     # write metadata to music files
