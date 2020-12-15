@@ -149,7 +149,8 @@ plugins: [
     mbsync,
     #mpdupdate,
     #mpdstats,
-    edit
+    edit,
+    the,
     missing,
     duplicates,
     #web,
