@@ -18,7 +18,7 @@ import:
     timid: no
 
     resume: ask
-    incremental: no
+    incremental: yes
     none_rec_action: ask
     #log:
 
@@ -26,12 +26,13 @@ import:
     quiet_fallback: skip
     default_action: apply
 
-    duplicate_action: skip
+    duplicate_action: ask
     singletons: no
     languages: [en]
     detail: no
     flat: no
     log: ~/.config/beets/beet.log
+
 asciify_paths: yes
 # use the release-date of the original (first) release of an album?
 original_date: no
@@ -52,10 +53,10 @@ ignore: [".*", "*~", "System Volume Information"]
 # Paths and filenames for music files
 # relative to music directory
 paths:
-    default: $albumartist/$album%aunique{}/$track - $title
+    default: %the{$albumartist}/($year) $album/$track $title
     singleton: Non-Album/$artist - $title
-    comp: Compilations/$album%aunique{}/$track - $title
-    albumtype_soundtrack: Soundtracks/$album%aunique{}/$track $title
+    comp: Compilations/$album/$track - $title
+    albumtype_soundtrack: Soundtracks/$album/$track $title
 
 # replace special characters in generated filenames
 replace:
@@ -128,7 +129,7 @@ match:
         countries: []
         media: []
         original_year: no
-    ignored: []
+    ignored: [unmatched_tracks]
     track_length_grace: 10
     track_length_max: 30
 
@@ -148,6 +149,7 @@ plugins: [
     mbsync,
     #mpdupdate,
     #mpdstats,
+    edit
     missing,
     duplicates,
     #web,
