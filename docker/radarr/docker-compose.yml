@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  qbittorrent:
+  radarr:
     image: linuxserver/radarr:latest
     container_name: radarr
     hostname: radarr
