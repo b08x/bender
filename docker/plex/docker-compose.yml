@@ -12,7 +12,7 @@ services:
       - TZ='America/New_York'
       - UMASK_SET=022 #optional
     volumes:
-      - .config/:/config
+      - ./config/:/config
       - /srv/share/media:/data
 #      - /somewhere:/transcode
     restart: unless-stopped
