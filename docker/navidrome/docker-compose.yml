@@ -5,16 +5,13 @@ services:
     image: deluan/navidrome:latest
     container_name: navidrome
     network_mode: bridge
-    ports:
-      - "4533:4533"
+    ports: 4533:4533
+    user: 1000:1000
     environment:
       # Optional: put your config options customization here. Examples:
-      - ND_SCANINTERVAL=1m
-      - ND_LOGLEVEL=info
-      - ND_BASEURL=""
-      - PUID=1001
-      - PGID=1041
-      - TZ='America/New_York'
+      ND_SCANINTERVAL: 10m
+      ND_LOGLEVEL: info
+      ND_BASEURL: ""
     volumes:
       - "./data:/data"
       - "/srv/share/media/music:/music:ro"
