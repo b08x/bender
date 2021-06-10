@@ -23,7 +23,7 @@ services:
       # - DEBUG=false
     volumes:
       - ./config:/config
-      - /srv/share/torrents:/data/torrents
+      - /srv/storage02/torrents:/data/torrents
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 44488:44448
