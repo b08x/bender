@@ -4,8 +4,6 @@ services:
   qbittorrent:
     image: binhex/arch-qbittorrentvpn
     container_name: qbittorrent
-    hostname: qbit
-    network_mode: bridge
     environment:
       - PUID=1001
       - PGID=1041
